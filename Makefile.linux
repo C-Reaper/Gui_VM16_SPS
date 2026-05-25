@@ -5,21 +5,23 @@ WARNINGS = -Werror
 CFLAGS = -O0 -mavx2 -std=gnu17 $(WARNINGS)
 INCLUDES = -Isrc
 LDFLAGS = -lm -lX11 -lpng -ljpeg
-
 SRC_DIR = src
 BUILD_DIR = build
-CODE_DIR = code
-BIN_DIR = bin
-
 TARGET = $(BUILD_DIR)/Main
 
-all: 
-	mkdir -p $(BUILD_DIR)
-	$(CC) $(CFLAGS) $(INCLUDES) ./$(SRC_DIR)/Main.c -o ./$(TARGET) $(LDFLAGS) 
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+OBJS = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRCS))
+
+all: $(BUILD_DIR) $(TARGET)
 
 alldebug:
-# -fsanitize=address 
 	$(CC) -g $(CFLAGS) $(INCLUDES) ./$(SRC_DIR)/Main.c -o ./$(TARGET) $(LDFLAGS) 
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+$(TARGET): $(SRCS)
+	$(CC) $(CFLAGS) $(INCLUDES) $(SRCS) -o $(TARGET) $(LDFLAGS)
 
 debug:
 	gdb ./$(TARGET)
@@ -27,16 +29,11 @@ debug:
 exe:
 	./$(TARGET)
 
+comp:
+	./bin/Rex
+
 clean:
 	rm -rf $(BUILD_DIR)/*
-
-cleanlib:
-	rm -rf $(BIN_DIR)/*
-
-lib: $(SO_FILES)
-
-comp:
-	$(BUILD_DIR)/Rex
 
 do: clean all exe
 
