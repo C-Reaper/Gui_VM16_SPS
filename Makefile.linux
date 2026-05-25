@@ -1,0 +1,45 @@
+# === Makefile.linux ===
+
+CC = gcc
+WARNINGS = -Werror
+CFLAGS = -O0 -mavx2 -std=gnu17 $(WARNINGS)
+INCLUDES = -Isrc
+LDFLAGS = -lm -lX11 -lpng -ljpeg
+
+SRC_DIR = src
+BUILD_DIR = build
+CODE_DIR = code
+BIN_DIR = bin
+
+TARGET = $(BUILD_DIR)/Main
+
+all: 
+	mkdir -p $(BUILD_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) ./$(SRC_DIR)/Main.c -o ./$(TARGET) $(LDFLAGS) 
+
+alldebug:
+# -fsanitize=address 
+	$(CC) -g $(CFLAGS) $(INCLUDES) ./$(SRC_DIR)/Main.c -o ./$(TARGET) $(LDFLAGS) 
+
+debug:
+	gdb ./$(TARGET)
+
+exe:
+	./$(TARGET)
+
+clean:
+	rm -rf $(BUILD_DIR)/*
+
+cleanlib:
+	rm -rf $(BIN_DIR)/*
+
+lib: $(SO_FILES)
+
+comp:
+	$(BUILD_DIR)/Rex
+
+do: clean all exe
+
+dg: clean alldebug debug
+
+# === Makefile.linux ===
