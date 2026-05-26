@@ -73,8 +73,12 @@ void RaySS_Hit(SPS_RaySS* rss,Vector* objs){
         if(its.size > 0){
             const Vec2 pos = *(Vec2*)Vector_Get(&its,0);
             const Vec2 dist = Vec2_Sub(pos,rss->p);
-            rss->t = Vec2_Mag(dist) / rss->len;
-            return;
+            const float fdist = Vec2_Mag(dist) / rss->len;
+            
+            if(fdist <= 1.0f){
+                rss->t = fdist;
+                return;
+            }
         }
 
         Vector_Free(&its);
@@ -110,25 +114,76 @@ void Setup(AlxWindow* w){
     vm = VM16_New();
     VM16_ConnectDevice(&vm,(VM16_Ram[]){ VM16_Ram_New(VM16_MEMORY_LOW,VM16_MEMORY_HIGH) });
     VM16_ConnectDevice(&vm,(VM16_Kernel[]){ VM16_Kernel_New(VM16_KERNEL_LOW,VM16_KERNEL_HIGH) });
-    VM16_ConnectDevice(&vm,(VM16_RaySS[]){ VM16_RaySS_Make(VM16_RAYSS_LOW,VM16_RAYSS_HIGH,(SPS_RaySS){
-        .p = { -0.5f,-0.125f },
-        .a = 0.0f,
-        .len = 3.0f,
-        .t = 1.0f
-    })});
-    VM16_ConnectDevice(&vm,(VM16_RaySS[]){ VM16_RaySS_Make(VM16_RAYSS_LOW + 16,VM16_RAYSS_HIGH + 16,(SPS_RaySS){
-        .p = { -0.5f,5.125f },
-        .a = 0.0f,
-        .len = 3.0f,
-        .t = 1.0f
-    })});
-    VM16_ConnectDevice(&vm,(VM16_ConBelt[]){ VM16_ConBelt_Make(VM16_CONBELT_LOW,VM16_CONBELT_HIGH,(SPS_ConBelt){
-        .box = { 0.0f,0.0f,1.0f,5.0f },
-        .time = 0.0f,
-        .v = 0U,
-        .d = VM16_CONBELT_DIR_DOWN
-    })});
     
+    //VM16_ConnectDevice(&vm,(VM16_RaySS[]){ VM16_RaySS_Make(VM16_SPS_LOW,VM16_SPS_LOW + 15,(SPS_RaySS){
+    //    .p = { -0.5f,-0.125f },
+    //    .a = 0.0f,
+    //    .len = 3.0f,
+    //    .t = 1.0f
+    //})});
+    //VM16_ConnectDevice(&vm,(VM16_RaySS[]){ VM16_RaySS_Make(VM16_SPS_LOW + 16,VM16_SPS_LOW + 31,(SPS_RaySS){
+    //    .p = { -0.5f,5.125f },
+    //    .a = 0.0f,
+    //    .len = 3.0f,
+    //    .t = 1.0f
+    //})});
+    //VM16_ConnectDevice(&vm,(VM16_ConBelt[]){ VM16_ConBelt_Make(VM16_SPS_LOW + 32,VM16_SPS_LOW + 47,(SPS_ConBelt){
+    //    .box = { 0.0f,0.0f,1.0f,5.0f },
+    //    .time = 0.0f,
+    //    .v = 0U,
+    //    .d = VM16_CONBELT_DIR_DOWN
+    //})});
+    
+    VM16_ConnectDevice(&vm,(VM16_RaySS[]){ VM16_RaySS_Make(VM16_SPS_LOW + 0x00,VM16_SPS_LOW + 0x0F,(SPS_RaySS){
+       .p = { 0.5f,-0.5f },
+       .a = F32_PI05,
+       .len = 2.0f,
+       .t = 1.0f
+    })});
+    VM16_ConnectDevice(&vm,(VM16_RaySS[]){ VM16_RaySS_Make(VM16_SPS_LOW + 0x10,VM16_SPS_LOW + 0x1F,(SPS_RaySS){
+       .p = { -0.5f,5.5f },
+       .a = 0.0f,
+       .len = 3.0f,
+       .t = 1.0f
+    })});
+    VM16_ConnectDevice(&vm,(VM16_RaySS[]){ VM16_RaySS_Make(VM16_SPS_LOW + 0x20,VM16_SPS_LOW + 0x2F,(SPS_RaySS){
+       .p = { 5.5f,6.5f },
+       .a = F32_PI05 * 3,
+       .len = 3.0f,
+       .t = 1.0f
+    })});
+    VM16_ConnectDevice(&vm,(VM16_RaySS[]){ VM16_RaySS_Make(VM16_SPS_LOW + 0x30,VM16_SPS_LOW + 0x3F,(SPS_RaySS){
+       .p = { 6.5f,0.5f },
+       .a = F32_PI,
+       .len = 3.0f,
+       .t = 1.0f
+    })});
+
+    VM16_ConnectDevice(&vm,(VM16_ConBelt[]){ VM16_ConBelt_Make(VM16_SPS_LOW + 0x40,VM16_SPS_LOW + 0x4F,(SPS_ConBelt){
+       .box = { 0.0f,0.0f,1.0f,5.0f },
+       .time = 0.0f,
+       .v = 0U,
+       .d = VM16_CONBELT_DIR_DOWN
+    })});
+    VM16_ConnectDevice(&vm,(VM16_ConBelt[]){ VM16_ConBelt_Make(VM16_SPS_LOW + 0x50,VM16_SPS_LOW + 0x5F,(SPS_ConBelt){
+       .box = { 0.0f,5.0f,5.0f,1.0f },
+       .time = 0.0f,
+       .v = 0U,
+       .d = VM16_CONBELT_DIR_RIGHT
+    })});
+    VM16_ConnectDevice(&vm,(VM16_ConBelt[]){ VM16_ConBelt_Make(VM16_SPS_LOW + 0x60,VM16_SPS_LOW + 0x6F,(SPS_ConBelt){
+       .box = { 5.0f,1.0f,1.0f,5.0f },
+       .time = 0.0f,
+       .v = 0U,
+       .d = VM16_CONBELT_DIR_UP
+    })});
+    VM16_ConnectDevice(&vm,(VM16_ConBelt[]){ VM16_ConBelt_Make(VM16_SPS_LOW + 0x70,VM16_SPS_LOW + 0x7F,(SPS_ConBelt){
+       .box = { 1.0f,0.0f,5.0f,1.0f },
+       .time = 0.0f,
+       .v = 0U,
+       .d = VM16_CONBELT_DIR_LEFT
+    })});
+
     VM16_Comp(&vm,PATH_ASM,PATH_LINK);
     VM16_Link(&vm,VM16_MEMORY_LOW,"_start",(CStr[]){ PATH_LINK,NULL },PATH_EXE);
     VM16_Load(&vm,VM16_MEMORY_LOW,PATH_EXE);
@@ -156,17 +211,36 @@ void Update(AlxWindow* w){
         }
     }
 
-
 	SPS_RaySS* const rss0  = (SPS_RaySS*)((VM16_RaySS*)Vector_Get(&vm.devices,2U))->data;
 	SPS_RaySS* const rss1  = (SPS_RaySS*)((VM16_RaySS*)Vector_Get(&vm.devices,3U))->data;
-	SPS_ConBelt* const cb0 = (SPS_ConBelt*)((VM16_ConBelt*)Vector_Get(&vm.devices,4U))->data;
+	SPS_RaySS* const rss2  = (SPS_RaySS*)((VM16_RaySS*)Vector_Get(&vm.devices,4U))->data;
+	SPS_RaySS* const rss3  = (SPS_RaySS*)((VM16_RaySS*)Vector_Get(&vm.devices,5U))->data;
+
+	SPS_ConBelt* const cb0 = (SPS_ConBelt*)((VM16_ConBelt*)Vector_Get(&vm.devices,6U))->data;
+	SPS_ConBelt* const cb1 = (SPS_ConBelt*)((VM16_ConBelt*)Vector_Get(&vm.devices,7U))->data;
+	SPS_ConBelt* const cb2 = (SPS_ConBelt*)((VM16_ConBelt*)Vector_Get(&vm.devices,8U))->data;
+	SPS_ConBelt* const cb3 = (SPS_ConBelt*)((VM16_ConBelt*)Vector_Get(&vm.devices,9U))->data;
     cb0->time += w->ElapsedTime;
+    cb1->time += w->ElapsedTime;
+    cb2->time += w->ElapsedTime;
+    cb3->time += w->ElapsedTime;
 
     ConBelt_Transport(cb0,&objs,w->ElapsedTime);
+    ConBelt_Transport(cb1,&objs,w->ElapsedTime);
+    ConBelt_Transport(cb2,&objs,w->ElapsedTime);
+    ConBelt_Transport(cb3,&objs,w->ElapsedTime);
+
     RaySS_Hit(rss0,&objs);
     RaySS_Hit(rss1,&objs);
+    RaySS_Hit(rss2,&objs);
+    RaySS_Hit(rss3,&objs);
     
 	Clear(BLACK);
+
+    ConBelt_Render(cb0);
+    ConBelt_Render(cb1);
+    ConBelt_Render(cb2);
+    ConBelt_Render(cb3);
 
     Ray_DirRender(
         WINDOW_STD_ARGS,
@@ -184,7 +258,22 @@ void Update(AlxWindow* w){
         RED,
         1.0f
     );
-    ConBelt_Render(cb0);
+    Ray_DirRender(
+        WINDOW_STD_ARGS,
+        TransformedView_WorldScreenPos(&tv,rss2->p),
+        TransformedView_WorldScreenLX(&tv,rss2->len * rss2->t),
+        rss2->a,
+        RED,
+        1.0f
+    );
+    Ray_DirRender(
+        WINDOW_STD_ARGS,
+        TransformedView_WorldScreenPos(&tv,rss3->p),
+        TransformedView_WorldScreenLX(&tv,rss3->len * rss3->t),
+        rss3->a,
+        RED,
+        1.0f
+    );
 
     for(int i = 0;i<objs.size;i++){
         const Rect r = *(Rect*)Vector_Get(&objs,i);
@@ -200,7 +289,7 @@ void Delete(AlxWindow* w){
 }
 
 int main(){
-    if(Create("Voronoi",1600,1000,1,1,Setup,Update,Delete))
+    if(Create("SPS Automation (VM16)",1600,1000,1,1,Setup,Update,Delete))
         Start();
     return 0;
 }

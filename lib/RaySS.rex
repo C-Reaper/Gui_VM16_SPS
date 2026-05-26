@@ -1,51 +1,27 @@
-u16 rayss0_get_running(){
-    u16 ret;
-    asm "st		" ret "  $30736";
+u16 rayss_get_running(u16 id){
+    u16* src = 31232 + id * 16;
+    u16 ret = *src;
     return ret;
 }
-u16 rayss0_get_state(){
-    u16 ret;
-    asm "st		" ret "  $30737";
+u16 rayss_get_state(u16 id){
+    u16* src = 31233 + id * 16;
+    u16 ret = *src;
     return ret;
 }
-u16 rayss0_get_dist(){
-    u16 ret;
-    asm "st		" ret "  $30738";
+u16 rayss_get_dist(u16 id){
+    u16* src = 31234 + id * 16;
+    u16 ret = *src;
     return ret;
 }
-void rayss0_set_running(u16 running){
-    asm "ld		$30736  " running;
+void rayss_set_running(u16 id,u16 running){
+    u16* src = 31232 + id * 16;
+    *src = running;
 }
-void rayss0_set_state(u16 state){
-    asm "ld		$30737  " state;
+void rayss_set_state(u16 id,u16 state){
+    u16* src = 31233 + id * 16;
+    *src = state;
 }
-void rayss0_set_dist(u16 dist){
-    asm "ld		$30738  " dist;
-}
-
-
-
-u16 rayss1_get_running(){
-    u16 ret;
-    asm "st		" ret "  $30752";
-    return ret;
-}
-u16 rayss1_get_state(){
-    u16 ret;
-    asm "st		" ret "  $30753";
-    return ret;
-}
-u16 rayss1_get_dist(){
-    u16 ret;
-    asm "st		" ret "  $30754";
-    return ret;
-}
-void rayss1_set_running(u16 running){
-    asm "ld		$30752  " running;
-}
-void rayss1_set_state(u16 state){
-    asm "ld		$30753  " state;
-}
-void rayss1_set_dist(u16 dist){
-    asm "ld		$30754  " dist;
+void rayss_set_dist(u16 id,u16 dist){
+    u16* src = 31234 + id * 16;
+    *src = dist;
 }

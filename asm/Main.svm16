@@ -23,163 +23,371 @@ f.kernel_sleep:
     ld		$1  r3
     ret
 
-f.rayss0_get_running:
+f.rayss_get_running:
+    sub		sp	2
     sub		sp	2
     mov		r3	sp
+    add		r3	6
+    ld2		r0	r3
+    mul2		r0	16
+    mov		r3	sp
     add		r3	0
-    st		r3  $30736
+    st2		r3	r0
+    sub		sp	2
+    mov2	r0	31232
+    mov		r3	sp
+    add		r3	2
+    ld2		r3	r3
+    add2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
     mov		r3	sp
     add		r3	0
     ld2		r0	r3
     mov		r3	sp
     add		r3	4
+    st2		r3	r0
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    sub		sp	2
+    mov		r2	sp
+    add		r2	4
+    mov		r1	sp
+    add		r1	0
+    ld		r0	r2
+    st		r1	r0
+    mov		r3	sp
+    add		r3	0
+    ld2		r3	r3
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	2
     ld2		r2	r3
     mov2		r2	r0
     st2		r3	r2
     add		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	8
+    ld2		r2	r3
+    mov2		r2	r0
+    st2		r3	r2
+    add		sp	2
+    add		sp	2
     ret
+    add		sp	2
     add		sp	2
     ret
 
-f.rayss0_get_state:
+f.rayss_get_state:
+    sub		sp	2
     sub		sp	2
     mov		r3	sp
+    add		r3	6
+    ld2		r0	r3
+    mul2		r0	16
+    mov		r3	sp
     add		r3	0
-    st		r3  $30737
+    st2		r3	r0
+    sub		sp	2
+    mov2	r0	31233
+    mov		r3	sp
+    add		r3	2
+    ld2		r3	r3
+    add2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
     mov		r3	sp
     add		r3	0
     ld2		r0	r3
     mov		r3	sp
     add		r3	4
+    st2		r3	r0
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    sub		sp	2
+    mov		r2	sp
+    add		r2	4
+    mov		r1	sp
+    add		r1	0
+    ld		r0	r2
+    st		r1	r0
+    mov		r3	sp
+    add		r3	0
+    ld2		r3	r3
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	2
     ld2		r2	r3
     mov2		r2	r0
     st2		r3	r2
     add		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	8
+    ld2		r2	r3
+    mov2		r2	r0
+    st2		r3	r2
+    add		sp	2
+    add		sp	2
     ret
+    add		sp	2
     add		sp	2
     ret
 
-f.rayss0_get_dist:
+f.rayss_get_dist:
+    sub		sp	2
     sub		sp	2
     mov		r3	sp
+    add		r3	6
+    ld2		r0	r3
+    mul2		r0	16
+    mov		r3	sp
     add		r3	0
-    st		r3  $30738
+    st2		r3	r0
+    sub		sp	2
+    mov2	r0	31234
+    mov		r3	sp
+    add		r3	2
+    ld2		r3	r3
+    add2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
     mov		r3	sp
     add		r3	0
     ld2		r0	r3
     mov		r3	sp
     add		r3	4
+    st2		r3	r0
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    sub		sp	2
+    mov		r2	sp
+    add		r2	4
+    mov		r1	sp
+    add		r1	0
+    ld		r0	r2
+    st		r1	r0
+    mov		r3	sp
+    add		r3	0
+    ld2		r3	r3
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	2
     ld2		r2	r3
     mov2		r2	r0
     st2		r3	r2
     add		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	8
+    ld2		r2	r3
+    mov2		r2	r0
+    st2		r3	r2
+    add		sp	2
+    add		sp	2
     ret
+    add		sp	2
     add		sp	2
     ret
 
-f.rayss0_set_running:
-    mov		r3	sp
-    add		r3	2
-    ld		$30736  r3
-    ret
-
-f.rayss0_set_state:
-    mov		r3	sp
-    add		r3	2
-    ld		$30737  r3
-    ret
-
-f.rayss0_set_dist:
-    mov		r3	sp
-    add		r3	2
-    ld		$30738  r3
-    ret
-
-f.rayss1_get_running:
+f.rayss_set_running:
+    sub		sp	2
     sub		sp	2
     mov		r3	sp
+    add		r3	8
+    ld2		r0	r3
+    mul2		r0	16
+    mov		r3	sp
     add		r3	0
-    st		r3  $30752
+    st2		r3	r0
+    sub		sp	2
+    mov2	r0	31232
+    mov		r3	sp
+    add		r3	2
+    ld2		r3	r3
+    add2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
     mov		r3	sp
     add		r3	0
     ld2		r0	r3
     mov		r3	sp
     add		r3	4
+    st2		r3	r0
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    mov		r2	sp
+    add		r2	2
+    mov		r1	sp
+    add		r1	0
+    ld		r0	r2
+    st		r1	r0
+    mov		r3	sp
+    add		r3	6
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    ld2		r3	r3
     ld2		r2	r3
     mov2		r2	r0
     st2		r3	r2
     add		sp	2
-    ret
     add		sp	2
     ret
 
-f.rayss1_get_state:
+f.rayss_set_state:
+    sub		sp	2
     sub		sp	2
     mov		r3	sp
+    add		r3	8
+    ld2		r0	r3
+    mul2		r0	16
+    mov		r3	sp
     add		r3	0
-    st		r3  $30753
+    st2		r3	r0
+    sub		sp	2
+    mov2	r0	31233
+    mov		r3	sp
+    add		r3	2
+    ld2		r3	r3
+    add2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
     mov		r3	sp
     add		r3	0
     ld2		r0	r3
     mov		r3	sp
     add		r3	4
+    st2		r3	r0
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    mov		r2	sp
+    add		r2	2
+    mov		r1	sp
+    add		r1	0
+    ld		r0	r2
+    st		r1	r0
+    mov		r3	sp
+    add		r3	6
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    ld2		r3	r3
     ld2		r2	r3
     mov2		r2	r0
     st2		r3	r2
     add		sp	2
-    ret
     add		sp	2
     ret
 
-f.rayss1_get_dist:
+f.rayss_set_dist:
+    sub		sp	2
     sub		sp	2
     mov		r3	sp
+    add		r3	8
+    ld2		r0	r3
+    mul2		r0	16
+    mov		r3	sp
     add		r3	0
-    st		r3  $30754
+    st2		r3	r0
+    sub		sp	2
+    mov2	r0	31234
+    mov		r3	sp
+    add		r3	2
+    ld2		r3	r3
+    add2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
     mov		r3	sp
     add		r3	0
     ld2		r0	r3
     mov		r3	sp
     add		r3	4
+    st2		r3	r0
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    mov		r2	sp
+    add		r2	2
+    mov		r1	sp
+    add		r1	0
+    ld		r0	r2
+    st		r1	r0
+    mov		r3	sp
+    add		r3	6
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    ld2		r3	r3
     ld2		r2	r3
     mov2		r2	r0
     st2		r3	r2
     add		sp	2
-    ret
     add		sp	2
-    ret
-
-f.rayss1_set_running:
-    mov		r3	sp
-    add		r3	2
-    ld		$30752  r3
-    ret
-
-f.rayss1_set_state:
-    mov		r3	sp
-    add		r3	2
-    ld		$30753  r3
-    ret
-
-f.rayss1_set_dist:
-    mov		r3	sp
-    add		r3	2
-    ld		$30754  r3
     ret
 
 f.conbelt_get_running:
     sub		sp	2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	6
+    ld2		r0	r3
+    mul2		r0	16
     mov		r3	sp
     add		r3	0
-    st		r3  $30768
+    st2		r3	r0
+    sub		sp	2
+    mov2	r0	31232
+    mov		r3	sp
+    add		r3	2
+    ld2		r3	r3
+    add2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
     mov		r3	sp
     add		r3	0
     ld2		r0	r3
     mov		r3	sp
-    add		r3	6
+    add		r3	4
+    st2		r3	r0
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    mov		r2	sp
+    add		r2	2
+    mov		r1	sp
+    add		r1	0
+    ld		r0	r2
+    st		r1	r0
+    mov		r3	sp
+    add		r3	0
+    ld2		r3	r3
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	8
     ld2		r2	r3
     mov2		r2	r0
     st2		r3	r2
+    add		sp	2
     add		sp	2
     ret
     add		sp	2
@@ -187,17 +395,48 @@ f.conbelt_get_running:
 
 f.conbelt_get_speed:
     sub		sp	2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	6
+    ld2		r0	r3
+    mul2		r0	16
     mov		r3	sp
     add		r3	0
-    st		r3  $30769
+    st2		r3	r0
+    sub		sp	2
+    mov2	r0	31233
+    mov		r3	sp
+    add		r3	2
+    ld2		r3	r3
+    add2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
     mov		r3	sp
     add		r3	0
     ld2		r0	r3
     mov		r3	sp
     add		r3	4
+    st2		r3	r0
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    mov		r2	sp
+    add		r2	2
+    mov		r1	sp
+    add		r1	0
+    ld		r0	r2
+    st		r1	r0
+    mov		r3	sp
+    add		r3	0
+    ld2		r3	r3
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	8
     ld2		r2	r3
     mov2		r2	r0
     st2		r3	r2
+    add		sp	2
     add		sp	2
     ret
     add		sp	2
@@ -205,38 +444,192 @@ f.conbelt_get_speed:
 
 f.conbelt_get_dir:
     sub		sp	2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	6
+    ld2		r0	r3
+    mul2		r0	16
     mov		r3	sp
     add		r3	0
-    st		r3  $30770
+    st2		r3	r0
+    sub		sp	2
+    mov2	r0	31234
+    mov		r3	sp
+    add		r3	2
+    ld2		r3	r3
+    add2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
     mov		r3	sp
     add		r3	0
     ld2		r0	r3
     mov		r3	sp
     add		r3	4
+    st2		r3	r0
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    mov		r2	sp
+    add		r2	2
+    mov		r1	sp
+    add		r1	0
+    ld		r0	r2
+    st		r1	r0
+    mov		r3	sp
+    add		r3	0
+    ld2		r3	r3
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	8
     ld2		r2	r3
     mov2		r2	r0
     st2		r3	r2
+    add		sp	2
     add		sp	2
     ret
     add		sp	2
     ret
 
 f.conbelt_set_running:
+    sub		sp	2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	8
+    ld2		r0	r3
+    mul2		r0	16
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
+    sub		sp	2
+    mov2	r0	31232
     mov		r3	sp
     add		r3	2
-    ld		$30768  r3
+    ld2		r3	r3
+    add2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
+    mov		r3	sp
+    add		r3	0
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	4
+    st2		r3	r0
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    mov		r2	sp
+    add		r2	2
+    mov		r1	sp
+    add		r1	0
+    ld		r0	r2
+    st		r1	r0
+    mov		r3	sp
+    add		r3	6
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    ld2		r3	r3
+    ld2		r2	r3
+    mov2		r2	r0
+    st2		r3	r2
+    add		sp	2
+    add		sp	2
     ret
 
 f.conbelt_set_speed:
+    sub		sp	2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	8
+    ld2		r0	r3
+    mul2		r0	16
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
+    sub		sp	2
+    mov2	r0	31233
     mov		r3	sp
     add		r3	2
-    ld		$30769  r3
+    ld2		r3	r3
+    add2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
+    mov		r3	sp
+    add		r3	0
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	4
+    st2		r3	r0
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    mov		r2	sp
+    add		r2	2
+    mov		r1	sp
+    add		r1	0
+    ld		r0	r2
+    st		r1	r0
+    mov		r3	sp
+    add		r3	6
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    ld2		r3	r3
+    ld2		r2	r3
+    mov2		r2	r0
+    st2		r3	r2
+    add		sp	2
+    add		sp	2
     ret
 
 f.conbelt_set_dir:
+    sub		sp	2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	8
+    ld2		r0	r3
+    mul2		r0	16
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
+    sub		sp	2
+    mov2	r0	31234
     mov		r3	sp
     add		r3	2
-    ld		$30770  r3
+    ld2		r3	r3
+    add2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    st2		r3	r0
+    mov		r3	sp
+    add		r3	0
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	4
+    st2		r3	r0
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    mov		r2	sp
+    add		r2	2
+    mov		r1	sp
+    add		r1	0
+    ld		r0	r2
+    st		r1	r0
+    mov		r3	sp
+    add		r3	6
+    ld2		r0	r3
+    mov		r3	sp
+    add		r3	0
+    ld2		r3	r3
+    ld2		r2	r3
+    mov2		r2	r0
+    st2		r3	r2
+    add		sp	2
+    add		sp	2
     ret
 
 f.main:
@@ -256,7 +649,14 @@ f.main:
     jnz		l.1_WHILE2_0
     sub		sp	1
     sub		sp	2
-    call	f.rayss0_get_state
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	0
+    st2		r3	r2
+    call	f.rayss_get_state
+    add		sp	2
     sub		sp	1
     mov		r3	sp
     add		r3	1
@@ -293,23 +693,44 @@ f.main:
     mov		r3	sp
     add		r3	0
     ld2		r2	r3
-    mov2		r2	10
+    mov2		r2	7
     st2		r3	r2
-    call	f.conbelt_set_speed
-    add		sp	2
     sub		sp	2
     mov		r3	sp
     add		r3	0
     ld2		r2	r3
     mov2		r2	0
     st2		r3	r2
-    call	f.conbelt_set_dir
+    call	f.conbelt_set_speed
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	4
+    st2		r3	r2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	10
+    st2		r3	r2
+    call	f.conbelt_set_speed
+    add		sp	2
     add		sp	2
     l.1_LOG3_0:
     l.1_IF3_0:
     sub		sp	1
     sub		sp	2
-    call	f.rayss1_get_state
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	1
+    st2		r3	r2
+    call	f.rayss_get_state
+    add		sp	2
     sub		sp	1
     mov		r3	sp
     add		r3	1
@@ -346,20 +767,182 @@ f.main:
     mov		r3	sp
     add		r3	0
     ld2		r2	r3
+    mov2		r2	4
+    st2		r3	r2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	0
+    st2		r3	r2
+    call	f.conbelt_set_speed
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	5
+    st2		r3	r2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
     mov2		r2	10
     st2		r3	r2
     call	f.conbelt_set_speed
     add		sp	2
+    add		sp	2
+    l.1_LOG3_1:
+    l.1_IF3_1:
+    sub		sp	1
+    sub		sp	2
     sub		sp	2
     mov		r3	sp
     add		r3	0
     ld2		r2	r3
     mov2		r2	2
     st2		r3	r2
-    call	f.conbelt_set_dir
+    call	f.rayss_get_state
     add		sp	2
-    l.1_LOG3_1:
-    l.1_IF3_1:
+    sub		sp	1
+    mov		r3	sp
+    add		r3	1
+    ld2		r0	r3
+    cmp2		r0	0
+    jnz		lcmp.4_TRUE
+    mov		r3	sp
+    add		r3	0
+    st1		r3	0
+    jmp		lcmp.5_END
+    lcmp.4_TRUE:
+    mov		r3	sp
+    add		r3	0
+    st1		r3	1
+    lcmp.5_END:
+    mov		r3	sp
+    add		r3	0
+    ld1		r0	r3
+    mov		r3	sp
+    add		r3	3
+    ld1		r2	r3
+    mov1		r2	r0
+    st1		r3	r2
+    add		sp	1
+    add		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld1		r0	r3
+    add		sp	1
+    cmp1		r0	1
+    jnz		l.1_IF3_2
+    l.0_IF3_2:
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	5
+    st2		r3	r2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	0
+    st2		r3	r2
+    call	f.conbelt_set_speed
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	6
+    st2		r3	r2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	10
+    st2		r3	r2
+    call	f.conbelt_set_speed
+    add		sp	2
+    add		sp	2
+    l.1_LOG3_2:
+    l.1_IF3_2:
+    sub		sp	1
+    sub		sp	2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	3
+    st2		r3	r2
+    call	f.rayss_get_state
+    add		sp	2
+    sub		sp	1
+    mov		r3	sp
+    add		r3	1
+    ld2		r0	r3
+    cmp2		r0	0
+    jnz		lcmp.6_TRUE
+    mov		r3	sp
+    add		r3	0
+    st1		r3	0
+    jmp		lcmp.7_END
+    lcmp.6_TRUE:
+    mov		r3	sp
+    add		r3	0
+    st1		r3	1
+    lcmp.7_END:
+    mov		r3	sp
+    add		r3	0
+    ld1		r0	r3
+    mov		r3	sp
+    add		r3	3
+    ld1		r2	r3
+    mov1		r2	r0
+    st1		r3	r2
+    add		sp	1
+    add		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld1		r0	r3
+    add		sp	1
+    cmp1		r0	1
+    jnz		l.1_IF3_3
+    l.0_IF3_3:
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	6
+    st2		r3	r2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	0
+    st2		r3	r2
+    call	f.conbelt_set_speed
+    add		sp	2
+    add		sp	2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	7
+    st2		r3	r2
+    sub		sp	2
+    mov		r3	sp
+    add		r3	0
+    ld2		r2	r3
+    mov2		r2	10
+    st2		r3	r2
+    call	f.conbelt_set_speed
+    add		sp	2
+    add		sp	2
+    l.1_LOG3_3:
+    l.1_IF3_3:
     sub		sp	2
     mov		r3	sp
     add		r3	0
