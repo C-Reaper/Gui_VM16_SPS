@@ -947,7 +947,7 @@ f.main:
     mov		r3	sp
     add		r3	0
     ld2		r2	r3
-    mov2		r2	100
+    mov2		r2	10
     st2		r3	r2
     call	f.kernel_sleep
     add		sp	2

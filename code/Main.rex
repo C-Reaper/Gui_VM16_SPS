@@ -21,7 +21,7 @@ u16 main(){
             conbelt_set_speed(7,10);
         }
 
-        kernel_sleep(100);
+        kernel_sleep(10);
     }
 
     return 0;
